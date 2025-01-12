@@ -1,0 +1,25 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+:root{
+    --primary-color: #3498db; /* Blue */
+    --secondary-color:#218023;
+    --main-color:#078209;
+}
+.heading{
+    color: var(--secondary-color);
+}
+.navbar{
+    height: 80px;
+    width: 100%;
+    background-color: var(--primary-color);
+}
+.main{
+    color: var(--main-color);
+}
+
+
