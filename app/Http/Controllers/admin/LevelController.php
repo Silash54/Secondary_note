@@ -14,7 +14,7 @@ class LevelController extends Controller
     public function index()
     {
         $level=Level::all();
-        return $level;
+        return view('admin.level.index',compact('level'));
     }
 
     /**
@@ -22,17 +22,7 @@ class LevelController extends Controller
      */
     public function create()
     {
-        $level=Level::create([
-            'class'=>10,
-            'syllabus'=>"10 class"
-        ]);
-        if($level)
-        {
-            echo"save";
-        }else{
-            echo "not";
-        }
-
+        return view('admin.level.create');
     }
 
     /**
@@ -40,7 +30,13 @@ class LevelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'class'=>'required|max:255'
+        ]);
+        $level=Level::create([
+            'class'=>$request->class,
+            'syllabus'=>$request->syllabus
+        ]);
     }
 
     /**
@@ -56,7 +52,8 @@ class LevelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $level=Level::find($id);
+        return view('admin.level.edit',compact('level'));
     }
 
     /**
@@ -64,7 +61,10 @@ class LevelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'class'=>'required|max:255'
+        ]);
+        
     }
 
     /**
