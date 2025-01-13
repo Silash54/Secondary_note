@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Level;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -21,7 +22,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('admin.course.create');
+        $class=Level::all();
+        return view('admin.course.create',compact('class'));
     }
 
     /**
@@ -29,14 +31,17 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $course = Course::create([
-            'title' => 'Math',
-            'description' => 'math is the foundation of engineering',
-            'level_id' => 2
+        //return $request;
+        $request->validate([
+            'subject'=>'required',
+            'class'=>'required'
         ]);
-        if ($course) {
-            echo "save";
-        }
+        $course=new Course();
+        $course->title=$request->subject;
+        $course->description=$request->description;
+        $course->level_id=$request->class;
+        $course->save();
+        return redirect()->route('course.index');
     }
 
     /**
@@ -52,7 +57,8 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $course=Course::find($id);
+            return view('admin.course.edit',compact('course'));
     }
 
     /**
@@ -60,7 +66,16 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'subject'=>'required',
+            'class'=>'required'
+        ]);
+        $course=Course::find($id);
+        $course->title=$request->subject;
+        $course->description=$request->description;
+        $course->level_id=$request->class;
+        $course->update();
+        return redirect()->route('course.index');
     }
 
     /**
@@ -68,6 +83,8 @@ class CourseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $course=Course::find($id);
+        $course->delete();
+        return redirect()->route('course.index');
     }
 }

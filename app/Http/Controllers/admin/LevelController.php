@@ -13,10 +13,11 @@ class LevelController extends Controller
      */
     public function index()
     {
+
         $level=Level::all();
+       // return $level;
         return view('admin.level.index',compact('level'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -30,13 +31,20 @@ class LevelController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request;
         $request->validate([
-            'class'=>'required|max:255'
+            'class'=>'required|integer'
         ]);
-        $level=Level::create([
-            'class'=>$request->class,
-            'syllabus'=>$request->syllabus
-        ]);
+        $level=new Level();
+        $level->class=$request->class;
+        if($request->hasFile('syllabus')){
+            $file=$request->syllabus;
+            $newName=time().'.'.$file->getClientOriginalExtension();
+            $file->move('pdf',$newName);
+            $level->syllabus="pdf/$file";
+        }
+        $level->save();
+        return redirect()->route('level.index');
     }
 
     /**
@@ -72,6 +80,7 @@ class LevelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $level=Level::findOrFail($id);
+        return $level;
     }
 }

@@ -19,7 +19,7 @@
                     <tr>
                         <td>{{ ++$index }}</td>
                         <td>{{ $value->class }}</td>
-                        <td>{{ $value->syllabus }}</td>
+                        <td><img src="{{ asset($value->syllabus) }}" alt="{{ $value->syllabus }}"></td>
                         <td>
                             <a href="{{ route('level.edit',$value->id) }}" class="btn btn-success">Edit</a>
                             <form action="{{ route('level.destroy',$value->id) }}" method="post" class="d-inline">

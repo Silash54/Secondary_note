@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Course extends Model
@@ -11,8 +12,8 @@ class Course extends Model
         'title',
         'description'
     ];
-    public function levels():BelongsToMany
+    public function level():BelongsTo
     {
-        return $this->belongsToMany(Level::class);
+        return $this->belongsTo(Level::class);
     }
 }

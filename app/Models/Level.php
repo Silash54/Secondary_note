@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Level extends Model
 {
@@ -11,8 +11,8 @@ class Level extends Model
         'class',
         'syllabus'
     ];
-    public function courses():BelongsToMany
+    public function course():HasMany
     {
-        return $this->belongsToMany(Course::class);
+        return $this->hasMany(Course::class);
     }
 }
