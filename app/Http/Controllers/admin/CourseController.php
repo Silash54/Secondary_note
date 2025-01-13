@@ -11,9 +11,9 @@ class CourseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $course=Course::all();
+        return view('admin.course.index',compact('course'));
     }
 
     /**
@@ -21,14 +21,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $course=Course::create([
-            'title'=>'Math',
-            'description'=>'math is the foundation of engineering',
-            'level_id'=>2
-        ]);
-        if($course){
-            echo"save";
-        }
+        return view('admin.course.create');
     }
 
     /**
@@ -36,7 +29,14 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $course = Course::create([
+            'title' => 'Math',
+            'description' => 'math is the foundation of engineering',
+            'level_id' => 2
+        ]);
+        if ($course) {
+            echo "save";
+        }
     }
 
     /**

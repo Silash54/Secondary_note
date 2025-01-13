@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <nav class="navbar navbar-expand-sm   navbar-light bg-success ">
+                <nav class="navbar navbar-expand-sm">
                     <div class="container">
                         <a class="navbar-brand" href="#">Home</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -10,9 +10,9 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav   mb-2 mb-lg-0">
+                            <ul class="navbar-nav mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="#">Our Team</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Link</a>

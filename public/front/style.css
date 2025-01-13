@@ -1,6 +1,7 @@
 *{
     margin: 0%;
     padding: 0%;
+    box-sizing: border-box;
 }
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -13,10 +14,36 @@ body{
 .heading{
     color: var(--secondary-color);
 }
-.navbar{
+.navbar {
     height: 80px;
     width: 100%;
-    background-color: var(--primary-color);
+    background-image: linear-gradient(to right, rgba(24, 205, 69, 0.5), rgb(5, 84, 42));
+    display: flex; /* For aligning items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding for spacing */
+    color: white; /* Text color */
+    font-family: Arial, sans-serif;
+    font-size: 18px; /* Font size for text */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+.links li{
+    list-style: none;
+}
+.links li a{
+    text-decoration: none;
+}
+.footer-main{
+    color: aliceblue;
+    background-image: linear-gradient(to right, rgba(24, 205, 69, 0.5), rgb(5, 84, 42));
+
+}
+
+/* Navbar links (if any) */
+.navbar a {
+    color: white; /* Link text color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Spacing between links */
+    transition: color 0.3s ease; /* Smooth hover effect for links */
 }
 .main{
     color: var(--main-color);
