@@ -22,18 +22,17 @@
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         Class
                                     </a>
-                                    <ul class="dropdown-menu col-md-bg-success" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Class 8</a></li>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @forelse ($level as  $value)
+                                        <li><a class="dropdown-item" href="{{ route('course_detail',$value->id) }}">{{ $value->class }}</a></li>
                                         <hr class="dropdown-divider">
-                                        <li><a class="dropdown-item" href="#">Class 9</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Class 10</a></li>
+                                        @empty
+                                            <span>No Data found</span>
+                                        @endforelse
                                     </ul>
                                 </li>
                             </ul>
-                            <ul class="navbar-nav ms-md-auto me-lg-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav ms-md-auto ms-lg-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Login</a>
                                 </li>
