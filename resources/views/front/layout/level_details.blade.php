@@ -1,17 +1,26 @@
 <x-front-layout>
-<div class="container">
-    <div class="container">
-        <div class="row">
-            <h2 class="text-center my-5">NEB Courses</h2>
-            <div class="col-md-10 text-center">
-                <h3>Class {{ $level->class }} Courses</h3>
-                <ul>
-                    @foreach ($level->course as $value)
-                    <li> <a href="">{{ $value->title }}</a></li>
-                @endforeach
-                </ul>
+    <div class="container d-flex justify-content-center align-items-center ">
+        <div class="text-center">
+            <h2 class="my-5">NEB Board</h2>
+            <div class="col-sm-12 col-md-12 col-lg-12 m-auto">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="fs-3 border border-dark rounded bg-light p-3 text-center">
+                                Class {{ $level->class }} Courses
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($level->course as $value)
+                            <tr>
+                                <td><a href="{{ route('course_syllabus',$level->id) }}" class="fs-5">{{ $value->title }}</a></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</div>
+
 </x-front-layout>

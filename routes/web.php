@@ -11,3 +11,6 @@ Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboa
 Route::resource('level',LevelController::class)->names('level');
 Route::resource('course',CourseController::class)->names('course');
 Route::get('front/course/{id}',[PageController::class,'course_detail'])->name('course_detail');
+Route::get('front/syllabus/{id}',[PageController::class,'course_syllabus'])->name('course_syllabus');
+
+Route::get('front/note',[PageController::class,'note'])->name('note.index');

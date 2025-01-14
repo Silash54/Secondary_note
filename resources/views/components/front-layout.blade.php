@@ -18,6 +18,40 @@
     <main>
         {{ $slot }}
     </main>
+    <section id="team">
+        <div class="container">
+            <div class="col-12 text-center mb-3">
+                <h2 class="heading">Our Team</h2>
+                <hr class="m-auto w-25 h-4">
+                <p class="mt-3">A note writer is a tool, application, or system designed to help users create,
+                    organize, and manage written notes effectively. It can be as simple as a pen-and-paper system or as
+                    advanced as a digital app with features </p>
+            </div>
+            <div class="row">
+                <!-- Team Member -->
+                <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
+                    <img src="{{ asset('front/image/SILAS.jpg') }}" class="img-fluid rounded-circle mb-3 h-50"
+                        alt="Silas Rai">
+                    <span class="d-block font-weight-bold">Silas Rai</span>
+                    <p>Silasraii144@gmail.com</p>
+                </div>
+                <!-- Team Member -->
+                <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
+                    <img src="{{ asset('front/image/SILAS.jpg') }}" class="img-fluid rounded-circle mb-3  h-50"
+                        alt="Silas Rai">
+                    <span class="d-block font-weight-bold">Silas Rai</span>
+                    <p>Silasraii144@gmail.com</p>
+                </div>
+                <!-- Team Member -->
+                <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
+                    <img src="{{ asset('front/image/SILAS.jpg') }}" class="img-fluid rounded-circle mb-3  h-50"
+                        alt="Silas Rai">
+                    <span class="d-block font-weight-bold">Silas Rai</span>
+                    <p>Silasraii144@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="text-center footer-main">
         <div class="container">
             <div class="row">

@@ -21,6 +21,15 @@ class PageController extends Controller
         $level = Level::with('course')->find($id);
         return view('front.layout.level_details',compact('level'));
     }
+    public function course_syllabus($id)
+    {
+        $level=Level::find($id);
+        return view('front.layout.syllabus', ['syllabusPath' => $level]);
+    }
+    public function note()
+    {
+        return "hello note";
+    }
     public function home()
     {
         return view('front.layout.home');
