@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Level;
+use App\Models\Team;
 use Illuminate\Support\Facades\View;
 
 class PageController extends Controller
@@ -12,8 +13,10 @@ class PageController extends Controller
     public function __construct()
     {
         $level=Level::all();
+        $teams=Team::orderBy('id','desc')->get();
         View::share([
-            'level'=>$level
+            'level'=>$level,
+            'teams'=>$teams
         ]);
     }
     public function course_detail($id)
@@ -23,8 +26,10 @@ class PageController extends Controller
     }
     public function course_syllabus($id)
     {
-        $level=Level::find($id);
-        return view('front.layout.syllabus', ['syllabusPath' => $level]);
+        $syllabusPath=Level::find($id);
+        $syllabusDetails=Level::find($id);
+        
+        return view('front.layout.syllabus', compact('syllabusPath','syllabusDetails'));
     }
     public function note()
     {

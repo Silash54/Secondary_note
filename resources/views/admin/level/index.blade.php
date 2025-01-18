@@ -16,21 +16,25 @@
                 </thead>
                 <tbody>
                     @forelse ($level as $index=>$value)
-                    <tr>
-                        <td>{{ ++$index }}</td>
-                        <td>{{ $value->class }}</td>
-                        <td><img src="{{ asset($value->syllabus) }}" alt="{{ $value->syllabus }}"></td>
-                        <td>
-                            <a href="{{ route('level.edit',$value->id) }}" class="btn btn-success">Edit</a>
-                            <form action="{{ route('level.destroy',$value->id) }}" method="post" class="d-inline">
-                                @csrf
-                                @method('POST')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ ++$index }}</td>
+                            <td>{{ $value->class }}</td>
+                            <td>@if (file_exists(public_path($value->syllabus)))
+                                <iframe src="{{ asset($value->syllabus) }}" width="100%" height="300px" style="border: none;"></iframe>
+                            @else
+                                <p>No syllabus available</p>
+                            @endif</td>
+                            <td>
+                                <a href="{{ route('level.edit', $value->id) }}" class="btn btn-success">Edit</a>
+                                <form action="{{ route('level.destroy', $value->id) }}" method="post" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
                     @empty
-                    <span class="tex-danger">No Data found</span>
+                        <span class="tex-danger">No Data found</span>
                     @endforelse
                 </tbody>
             </table>

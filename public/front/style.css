@@ -44,6 +44,7 @@ body{
     text-decoration: none; /* Remove underline */
     margin: 0 15px; /* Spacing between links */
     transition: color 0.3s ease; /* Smooth hover effect for links */
+    
 }
 .main{
     color: var(--main-color);
@@ -54,5 +55,7 @@ ul li{
 a{
     text-decoration: none;
 }
+
+
 
 

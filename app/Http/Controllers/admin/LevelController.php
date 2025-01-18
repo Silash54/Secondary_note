@@ -15,7 +15,7 @@ class LevelController extends Controller
     {
 
         $level=Level::all();
-       // return $level;
+        //return $level;
         return view('admin.level.index',compact('level'));
     }
     /**
@@ -37,11 +37,11 @@ class LevelController extends Controller
         ]);
         $level=new Level();
         $level->class=$request->class;
-        if($request->hasFile('syllabus')){
-            $file=$request->syllabus;
-            $newName=time().'.'.$file->getClientOriginalExtension();
-            $file->move('pdf',$newName);
-            $level->syllabus="pdf/$file";
+        if ($request->hasFile('syllabus')) {
+            $file = $request->file('syllabus');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('pdf'), $filename);
+            $level->syllabus = "pdf/$filename"; // Store the relative path
         }
         $level->save();
         return redirect()->route('level.index');
@@ -81,6 +81,7 @@ class LevelController extends Controller
     public function destroy(string $id)
     {
         $level=Level::findOrFail($id);
-        return $level;
+        $level->delete();
+        return redirect()->route('level.index');
     }
 }
