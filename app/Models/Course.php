@@ -16,4 +16,9 @@ class Course extends Model
     {
         return $this->belongsTo(Level::class);
     }
+    public function Units()
+    {
+        return $this->hasMany(Unit::class);
+    }
+    
 }

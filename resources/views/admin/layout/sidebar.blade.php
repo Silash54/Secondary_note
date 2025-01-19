@@ -24,6 +24,12 @@
         </a>
     </li><!-- End Course Page Nav -->
     <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('unit.index') }}">
+            <i class="bi bi-card-list"></i>
+            <span>Units</span>
+        </a>
+    </li><!-- End Units Page Nav -->
+    <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('teams.index') }}">
             <i class="bi bi-card-list"></i>
             <span>Our Teams</span>
